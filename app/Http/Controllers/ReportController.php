@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Resources\Report as ReportResource;
 use Maatwebsite\Excel\Facades\Excel;
 
+use App\Station;
+
 class ReportController extends Controller
 {
     public function getReports()
     {
         // Get reports
-        $reports = Report::orderBy('created_at', 'desc')->paginate(10);
+        $reports = Report::orderBy('created_at', 'desc');
 
         // Return collection of reports as a resource
-        return ReportResource::collection($reports);
+        //return ReportResource::collection($reports);
+         return response()->json(['reports'=> Report::all(),'status'=>true], 200, [], JSON_NUMERIC_CHECK);
     }
 
     /**
@@ -26,8 +29,15 @@ class ReportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postReport(Request $request)
+    public function postReport(Request $request, $stationId)
     {
+          
+         $station = Station::find($stationId);
+         
+         if(!$station){
+          return response()->json(['message' => 'station not found', 'status' => false], 404);
+         }
+        
         $validator = Validator::make($request->all(), [
             'plat_no' => 'required',
             'message' => 'required',
@@ -48,11 +58,13 @@ class ReportController extends Controller
 
         $report->plat_no = $request->input('plat_no');
         $report->message = $request->input('message');
+        $report->report_id = $request->input('report_id');
+        $report->uid = $request->input('uid');
 
         $report->image = $this->path;
-        $report->save();
+        $station->reports()->save($report);
 
-        return new ReportResource($report);
+        return response()->json(['report'=> $report, 'status'=>true], 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function putReport(Request $request, $reportId)
@@ -83,10 +95,25 @@ class ReportController extends Controller
             return response()->json(['message' => 'report not found', 'status' => false], 404);
         }
         if ($report->delete()) {
-            return new ReportResource($report);
+            return response()->json(['report'=> 'report deleted successfully', 'status'=>true]);
         }
     }
+    
+    
+    
+    public function viewFile($reportId)
+    {
+        $report = Report::find($reportId);
+        if (!$report) {
+            return response()->json(['message' => 'Report not found', 'status' => false], 404);
+        }
 
+        $pathToFile = storage_path('/app/' . $report->image);
+
+
+
+        return response()->download($pathToFile);
+    }
 
    
 }

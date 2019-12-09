@@ -14,10 +14,15 @@ class StationController extends Controller
     public function getStations()
     {
         // Get stations
-        $stations = Station::orderBy('created_at', 'desc')->paginate(10);
+        $stations = Station::all();
+        
+        foreach ($stations as $station){ 
+             $station->reports;
+           }
 
         // Return collection of stations as a resource
-        return StationResource::collection($stations);
+        //return StationResource::collection($stations);
+        return response()->json(['stations'=> $stations, 'status'=>true], 200, [], JSON_NUMERIC_CHECK);
     }
 
     /**
