@@ -19,4 +19,8 @@ class Station extends Model
     ];
 
     protected $dates = ['deleted_at'];
+    
+     public function reports(){
+        return $this->hasMany(Report::class);
+    }
 }

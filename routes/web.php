@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,3 +28,8 @@ Route::get('/about', function () {
 Route::get('export', 'StationController@export')->name('export');
 Route::get('importExportView', 'StationController@importExportView');
 Route::post('import', 'StationController@import')->name('import');
+
+Route::get('/acceleration', 'AccelerationController@accelerations');
+Route::get('/location', 'LocationController@locations');
+Route::get('/gyroscope', 'GyroscopeController@gyroscopes');
+

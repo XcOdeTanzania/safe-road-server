@@ -21,7 +21,6 @@ class CreateStationsTable extends Migration
             $table->float('latitude');
             $table->float('longitude');
             $table->string('district');
-            $table->tex('');
             $table->string('id_district');
             $table->string('region');
             $table->softDeletes();
