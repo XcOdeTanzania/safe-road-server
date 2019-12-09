@@ -10,4 +10,4 @@ About
     <p class="card-text"></p>
     
   </div>
-@endsectionÏ
+@endsection

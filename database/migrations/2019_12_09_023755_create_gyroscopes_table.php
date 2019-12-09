@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReportsTable extends Migration
+class CreateGyroscopesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('gyroscopes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image');
-            $table->string('plat_no');
-            $table->string('message')->nullable();
-            $table->bigInteger('station_id');
-            $table->bigInteger('report_id');
-            $table->bigInteger('uid');
+
+            $table->double('x');
+            $table->double('y');
+            $table->double('z');
+            $table->bigInteger('user_id');
+
             $table->softDeletes();
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('gyroscopes');
     }
 }

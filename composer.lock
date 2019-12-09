@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af7248b7016756185473e1fba451f86b",
+    "content-hash": "dc309ba59e42c664c2b0644c6475efb9",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -325,6 +325,56 @@
                 "parser"
             ],
             "time": "2019-03-17T18:48:37+00:00"
+        },
+        {
+            "name": "farhanwazir/laravelgooglemaps",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/farhanwazir/laravelgooglemaps.git",
+                "reference": "882a1422b91c9f4735ae7188ed897965d253822a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/farhanwazir/laravelgooglemaps/zipball/882a1422b91c9f4735ae7188ed897965d253822a",
+                "reference": "882a1422b91c9f4735ae7188ed897965d253822a",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.*",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FarhanWazir\\GoogleMaps\\": "src/FarhanWazir/GoogleMaps/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Farhan Wazir",
+                    "email": "seejee1@gmail.com",
+                    "role": "Author"
+                }
+            ],
+            "description": "Laravel Google Map package for 5.x. You can use all google map features in laravel.",
+            "keywords": [
+                "gmap",
+                "google",
+                "googlemap",
+                "laravel",
+                "map"
+            ],
+            "time": "2019-04-23T22:55:05+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -3290,6 +3340,57 @@
             "time": "2019-10-24T08:53:34+00:00"
         },
         {
+            "name": "twbs/bootstrap",
+            "version": "v4.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb",
+                "reference": "dca1ab7d877bc4b664b43604657a2b5fbe2b4ecb",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                },
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "https://getbootstrap.com/",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "mobile-first",
+                "responsive",
+                "sass",
+                "web"
+            ],
+            "time": "2019-11-28T12:59:49+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.0",
             "source": {
@@ -5108,7 +5209,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "farhanwazir/laravelgooglemaps": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
