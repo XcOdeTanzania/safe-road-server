@@ -18,6 +18,7 @@
       <a class="nav-item nav-link" href="/acceleration">Accelerometer</a>
       <a class="nav-item nav-link" href="/location">GPS location</a>
       <a class="nav-item nav-link" href="/gyroscope">Gyroscope</a>
+      <a class="nav-item nav-link" href="/dashboard">DASHBOARD</a>
       
     </div>
   </div>

@@ -112,7 +112,7 @@ class StationController extends Controller
 
     public function import()
     {
-        Excel::import(new StationImport, request()->file('file'));
+        Excel::import( StationImport, request()->file('file'));
 
         return back();
     }

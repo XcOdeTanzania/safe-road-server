@@ -20,6 +20,8 @@ class CreateReportsTable extends Migration
             $table->string('message')->nullable();
             $table->bigInteger('station_id');
             $table->bigInteger('report_id');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->bigInteger('uid');
             $table->softDeletes();
             $table->timestamps();
